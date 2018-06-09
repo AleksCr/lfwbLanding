@@ -6,8 +6,64 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <script>
+        console.log('init script');
+        function testClick() {
+            console.log('button was clicked');
+        }
+    </script>
 </head>
 <body>
-    <h1>Test</h1>
+    <button type="button" class="btn btn-danger" onclick="testClick()">Тестовая подписка</button>
+    <div class="btn-group login" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary">Зайти</button>
+        <button type="button" class="btn btn-primary">Регистрация</button>
+    </div>
+    <br><br>
+    <h1>Состояние серверов:</h1>
+        <div class="server">
+            <span class="server-name">Interzone</span>
+            <span class="server-status">Currently playing, there are 3 players</span>
+        </div>
+    <p>Инфа о миграциях(карусель):</p>
+        <div class="card text-white bg-primary mb-3 migrations" style="max-width: 18rem;">
+        <div class="card-header">Идет миграция! (Ruzone)</div>
+        <div class="card-body">
+            <h5 class="card-title">Статистика:</h5>
+            <p class="card-text">Смертей 20/50</p>
+            <p class="card-text">Кризис: вода отравлена</p>
+            <p class="card-text">Доминирующие семьи: Картофелины (47 хромосом)</p>
+        </div>
+    </div>
+    <h1>Подписаться на push-уведомления:</h1>
+    <p>Прекольные Цитатки</p>
+    <blockquote class="blockquote">
+        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+    </blockquote>
+    <p>Профиль, настройки подписки, гибкие настройки</p>
+
+    <p>Оповещать:</p>
+
+    <div class="card bg-light mb-3 settings" style="max-width: 18rem;">
+        <div class="card-header">Настройки оповещений</div>
+    <div class="card-body">
+        <p class="card-text">Можно настроить тип раундов, при которых будут приходить уведомления, привязанные устройства, на которые они будут приходить, а так же диапазон дозволенного для оповещения времени</p>
+        <div class="btn-group-wrap">
+        <form class="was-validated">
+          <div class="custom-control custom-checkbox mb-3">
+              <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+              <label class="custom-control-label" for="customControlValidation1">Обычные раунды</label>
+          </div>
+        </form>
+        <form class="was-validated">
+          <div class="custom-control custom-checkbox mb-3">
+              <input type="checkbox" class="custom-control-input" id="customControlValidation2" required>
+              <label class="custom-control-label" for="customControlValidation2">Миграции</label>
+          </div>
+        </form>
+    </div>
+    </div>
+    </div>
+
 </body>
 </html>
