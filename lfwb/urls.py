@@ -13,10 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url
 from django.contrib import admin
 from django.urls import include, path
+
+from stats_and_subscribe.views import service_worker
 
 urlpatterns = [
     path('stats_and_subscribe/', include('stats_and_subscribe.urls')),
     path('admin/', admin.site.urls),
+    url(r'^firebase-messaging-sw.js', service_worker),
 ]
