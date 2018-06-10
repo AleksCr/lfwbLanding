@@ -17,10 +17,11 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import include, path
 
-from stats_and_subscribe.views import service_worker
+from stats_and_subscribe.views import service_worker, send
 
 urlpatterns = [
     path('stats_and_subscribe/', include('stats_and_subscribe.urls')),
     path('admin/', admin.site.urls),
+    url(r'^send$', send),
     url(r'^firebase-messaging-sw.js', service_worker),
 ]
