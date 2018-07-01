@@ -11,15 +11,26 @@
         console.log('init script');
         var myToken = '';
 
-function testClick() {
-    defaultMessaging.requestPermission().then(function() {
-            console.log('Notification permission granted.');
-            // TODO(developer): Retrieve an Instance ID token for use with FCM.
-            // ...
+        // sleep time expects milliseconds
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function demo() {
+  console.log('init firebase...');
+  await sleep(800);
+  defaultMessaging.requestPermission().then(function() {
+        console.log('Notification permission granted.');
+        // TODO(developer): Retrieve an Instance ID token for use with FCM.
+        // ...
     }).catch(function(err) {
         console.log('Unable to get permission to notify.', err);
     });
 
+}
+demo();
+
+function testClick() {
 defaultMessaging.getToken().then(function(currentToken) {
   if (currentToken) {
     myToken = currentToken;
@@ -40,14 +51,13 @@ defaultMessaging.getToken().then(function(currentToken) {
 }).then(function (value) {
     console.log('button was clicked');
             console.log("myToken: " + myToken);
-            $.get("send",
+            $.get("",
                 {
-                  name: "Donald Duck",
-                  city: "Duckburg",
                   token: myToken
                 },
                 function(data,status){
                     //alert("Data: " + data + "\nStatus: " + status);
+                    alert('Thank for registration! Token was sent to push-server. Restart your browser now...');
                 });
 });
 
